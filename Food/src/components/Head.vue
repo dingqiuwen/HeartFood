@@ -28,21 +28,6 @@
 			</a></li>
 		</ul>
     </div>
-	<div class="nav">
-		<div class="wns">
-			<ul>
-				<li><a href="">首页</a></li>
-				<li><a href="">菜谱大全</a></li>
-				<li><a href="">家常菜谱</a></li>
-				<li><a href="">美食问答</a></li>
-				<li><a href="">食谱分类</a></li>
-				<li><a href="">健康食疗</a></li>
-				<li><a href="">厨友排行</a></li>
-				<li><a href="">用户搜索</a></li>
-				<li><a href="">公告</a></li>
-			</ul>
-		</div>
-	</div>
   </div>
 </template>
 
@@ -58,10 +43,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
-* {
-    margin: 0;
-    padding: 0;
-}
 .headSearch{
     width 960px
     height 90px
@@ -152,35 +133,7 @@ export default {
 				}
 			}
 		}
-		li:hover{
-			color orange
-		}
-		
 	}
 }
-.nav{
-	width: 100%;
-	height: 40px;
-    background-color: #fa7e3e;
-	.wns{
-		width 960px
-		margin 0 auto 
-		ul{
-			list-style none 
-			li{
-				float left
-				line-height 36px
-				height 36px
-				padding 0px 18px
-				a{	
-					font-size 16px
-					color white
-					text-decoration none
-				}
-			}
-		}
-	}
-}
-  
 
 </style>
