@@ -12,8 +12,9 @@
       </ul>
     </div>
 	<keep-alive>
-		<component :is="currentTabComponent"></component>
+		<component v-if="!ifShow" :is="currentTabComponent"></component>
 	</keep-alive>
+  <Registration v-if="ifShow"></Registration>
   </div>
 </template>
 
@@ -28,6 +29,7 @@ import FoodAnswer from "@/views/FoodAnswer";
 import UserRanking from "@/views/UserRanking";
 import UserSearch from "@/views/UserSearch";
 import Notice from "@/views/Notice";
+import Registration from "@/components/Registration"
 import api from "@/api/tab.js";
 export default {
   name: "HelloWorld",
@@ -41,7 +43,8 @@ export default {
     FoodAnswer,
     UserRanking,
     UserSearch,
-    Notice
+    Notice,
+    Registration
   },
   data() {
     return {
@@ -51,37 +54,43 @@ export default {
 	  currentTabComponent:"HomePage"
     };
   },
+  computed:{
+    ifShow(){
+      return this.$store.state.ifShow
+    }
+  },
   methods: {
     change(num,item) {
-	  this.tabIndex = num;
-	  this.currentIndex = item.currentName
-	  if(item.currentName == "one"){
-		  this.currentTabComponent = "HomePage"
-	  }
-	  if(item.currentName == "two"){
-		  this.currentTabComponent = "CookMenu"
-	  }
-	  if(item.currentName == "three"){
-		  this.currentTabComponent = "HomeCook"
-	  }
-	  if(item.currentName == "four"){
-		  this.currentTabComponent = "FoodAnswer"
-	  }
-	  if(item.currentName == "five"){
-		  this.currentTabComponent = "CookSort"
-	  }
-	  if(item.currentName == "six"){
-		  this.currentTabComponent = "HealthFood"
-	  }
-	  if(item.currentName == "seven"){
-		  this.currentTabComponent = "UserRanking"
-	  }
-	  if(item.currentName == "eight"){
-		  this.currentTabComponent = "UserSearch"
-	  }
-	  if(item.currentName == "nine"){
-		  this.currentTabComponent = "Notice"
-	  }
+	    this.tabIndex = num;
+	    this.currentIndex = item.currentName
+	    if(item.currentName == "one"){
+		    this.currentTabComponent = "HomePage"
+	    }
+	    if(item.currentName == "two"){
+		    this.currentTabComponent = "CookMenu"
+	    }
+	    if(item.currentName == "three"){
+		    this.currentTabComponent = "HomeCook"
+	    }
+	    if(item.currentName == "four"){
+		    this.currentTabComponent = "FoodAnswer"
+	    }
+	    if(item.currentName == "five"){
+		    this.currentTabComponent = "CookSort"
+	    }
+	    if(item.currentName == "six"){
+		    this.currentTabComponent = "HealthFood"
+	    }
+	    if(item.currentName == "seven"){
+		    this.currentTabComponent = "UserRanking"
+	    }
+	    if(item.currentName == "eight"){
+		    this.currentTabComponent = "UserSearch"
+	    }
+	    if(item.currentName == "nine"){
+		    this.currentTabComponent = "Notice"
+      }
+      this.$store.state.ifShow = false
     }
   }
 };

@@ -13,7 +13,7 @@
 			<li><img src="../../static/images/上传.png" alt=""><router-link to="Registration.vue" tag="span">上传</router-link></li>
 			<li><img src="../../static/images/问号.png" alt=""><router-link to="Question.vue" tag="span">提问</router-link></li>
 			<li><img src="../../static/images/密码.png" alt=""><router-link to="Login.vue" tag="span">登录</router-link></li>
-			<li><img src="../../static/images/编辑.png" alt=""><router-link to="Registration.vue" tag="span">注册</router-link></li>
+			<li><img src="../../static/images/编辑.png" alt=""><span @click="register">注册</span></li>
 		</ul>
     </div>
   </div>
@@ -25,6 +25,11 @@ export default {
   data () {
     return {
     }
+  },
+  methods:{
+	  register () {
+		  this.$store.state.ifShow = true
+	  }
   }
 }
 </script>

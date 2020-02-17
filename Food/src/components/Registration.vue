@@ -1,15 +1,14 @@
 <template>
   <div class="hello">
-    <Head></Head>
-    
+    <div>
+      4354446
+    </div>
   </div>
 </template>
 <script>
-import Head from "@/Head";
 export default {
-  name: "HelloWorld",
+  name: "Registration",
   components: {
-    Head
   },
   data() {
     return {
