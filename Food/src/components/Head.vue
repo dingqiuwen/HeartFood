@@ -10,22 +10,10 @@
 			<button type="submit">搜索</button>
       	</div>
 		<ul class="function">
-			<li><a href="">
-				<li><img src="../../static/images/上传.png" alt=""></li>
-				<span>上传</span>
-			</a></li>
-			<li><a href="">
-				<li><img src="../../static/images/问号.png" alt=""></li>
-				<span>提问</span>
-			</a></li>
-			<li><a href="">
-				<li><img src="../../static/images/密码.png" alt=""></li>
-				<span>登录</span>
-			</a></li>
-			<li><a href="">
-				<li><img src="../../static/images/编辑.png" alt=""></li>
-				<span>注册</span>
-			</a></li>
+			<li><img src="../../static/images/上传.png" alt=""><router-link to="Registration.vue" tag="span">上传</router-link></li>
+			<li><img src="../../static/images/问号.png" alt=""><router-link to="Question.vue" tag="span">提问</router-link></li>
+			<li><img src="../../static/images/密码.png" alt=""><router-link to="Login.vue" tag="span">登录</router-link></li>
+			<li><img src="../../static/images/编辑.png" alt=""><router-link to="Registration.vue" tag="span">注册</router-link></li>
 		</ul>
     </div>
   </div>
@@ -102,35 +90,25 @@ export default {
 		
 	}
 	.function {
-		margin-top 32px
-		display inline-block
+		display flex
 		width 340px
-		height 26px
-		list-style: none
-		padding-left 0px
+		height 90px
+		line-height 90px
+		justify-content flex-end
 		li {
-			margin-left 23px
-			a {
-				color black
-				text-decoration: none
+			display inline-block
+			img {
+				width 18px
+				height 18px 
 				vertical-align: middle
-    			cursor: pointer
-				li {
-					float left
-					img {
-						display inline-block
-						width 18px
-						height 18px 
-					}
-				}
-				span {
-					margin-left 5px
-					float left
-					display: inline-block;
-    				line-height: 20px;
-					cursor: pointer;
-					font-size: 16px;
-				}
+			}
+			span {
+    			line-height: 26px;
+				cursor: pointer;
+				font-size: 16px;
+				vertical-align: middle
+				margin-right 25px
+				margin-left 5px
 			}
 		}
 	}
