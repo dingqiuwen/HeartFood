@@ -42,16 +42,3 @@ export function checkRepeat(data, name, field, value, cb) {
 	// 没有问题
 	cb();
 }
-// 校验电话号码
-export function checkTel(field, value, cb) {
-	// 不能为空
-	if (!value) {
-		return cb(new Error('请输入电话号码!'));
-	}
-	if (!(/^1[3456789]\d{9}$/.test(value))) {
-		// 提示错误
-		return cb(new Error('你输入的电话号码有误，请重新输入！'));
-	}
-	// 没有问题
-	cb();
-}
