@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Head from '@/components/Head'
 import Registration from '@/components/Registration'
+import Login from '@/components/Login'
+
 
 
 
@@ -18,6 +20,10 @@ export default new Router({
     {
       path: '/Registration',
       component: Registration
+    },
+    {
+      path: '/Login',
+      component: Login
     }
   ]
 })

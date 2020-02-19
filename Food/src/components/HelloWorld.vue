@@ -15,6 +15,7 @@
 		<component v-if="!ifShow" :is="currentTabComponent"></component>
 	</keep-alive>
   <Registration v-if="ifShow"></Registration>
+  <Login></Login>
   </div>
 </template>
 
@@ -30,6 +31,7 @@ import UserRanking from "@/views/UserRanking";
 import UserSearch from "@/views/UserSearch";
 import Notice from "@/views/Notice";
 import Registration from "@/components/Registration"
+import Login from "@/components/Login"
 import api from "@/api/tab.js";
 export default {
   name: "HelloWorld",
@@ -44,14 +46,15 @@ export default {
     UserRanking,
     UserSearch,
     Notice,
-    Registration
+    Registration,
+    Login
   },
   data() {
     return {
       api: api,
-	  tabIndex: 0,
-	  currentIndex:null,
-	  currentTabComponent:"HomePage"
+	    tabIndex: 0,
+	    currentIndex:null,
+	    currentTabComponent:"HomePage"
     };
   },
   computed:{
