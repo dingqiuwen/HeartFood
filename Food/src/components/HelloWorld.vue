@@ -57,7 +57,7 @@ export default {
 	    currentTabComponent:"HomePage"
     };
   },
-  computed:{
+  computed: {
     ifShow(){
       return this.$store.state.ifShow
     }

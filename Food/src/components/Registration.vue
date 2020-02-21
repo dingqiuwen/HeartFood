@@ -7,19 +7,19 @@
 					<div class="left">
 						<div class="email common">
 							<img src="../../static/images/邮箱.png" alt="">
-							<input type="email" name="email" id="email" placeholder="E-mail" onfocus="this.placeholder=''" onblur="this.placeholder='E-mail'">
+							<input v-model="email" type="email" name="email" id="email" placeholder="E-mail" onfocus="this.placeholder=''" onblur="this.placeholder='E-mail'">
 						</div>
 						<div class="user common">
 							<img src="../../static/images/用户.png" alt="">
-							<input type="text" name="username" id="username" placeholder="用户名" onfocus="this.placeholder=''" onblur="this.placeholder='用户名'">
+							<input v-model="username" type="text" name="username" id="username" placeholder="用户名" onfocus="this.placeholder=''" onblur="this.placeholder='用户名'">
 						</div>
 						<div class="psw common">
 							<img src="../../static/images/密码.png" alt="">
-							<input type="password" name="password" id="password" placeholder="密码" onfocus="this.placeholder=''" onblur="this.placeholder='密码'">
+							<input v-model="password" type="password" name="password" id="password" placeholder="密码" onfocus="this.placeholder=''" onblur="this.placeholder='密码'">
 						</div>
 						<div class="repsw common">
 							<img src="../../static/images/密码.png" alt="">
-							<input type="password" name="repassword" id="repassword" placeholder="确认密码" onfocus="this.placeholder=''" onblur="this.placeholder='确认密码'">
+							<input v-model="checkpssword" type="password" name="repassword" id="repassword" placeholder="确认密码" onfocus="this.placeholder=''" onblur="this.placeholder='确认密码'">
 						</div>
 						<Drag></Drag>
 						<div class="remenberpsw">
@@ -30,7 +30,7 @@
 							<a href="" class="forgetpsw">忘记密码？</a>
 						</div>
 						<div class="btn">
-							<button type="submit" style="background:transparent;border:0;color:#FFFFFF;line-height:40px;outline:none;cursor:pointer;">完成注册</button>
+							<button @click="commit" type="submit" style="background:transparent;border:0;color:#FFFFFF;line-height:40px;outline:none;cursor:pointer;">完成注册</button>
 						</div>
 					</div>
 					<div class="right">
@@ -51,9 +51,46 @@ export default {
   	},
   	data() {
     	return {
-
+			email:'',
+			username:'',
+			password:'',
+			checkpassword:''
     	};
-  	}
+	},
+	methods:{
+		commit() {
+			let email = this.email;
+			let username = this.username;
+			let password = this.password;
+			let checkpassword = this.checkpassword;
+			if ((email != '')&(username != '')&(password != '')&(checkpassword = password)){
+				debugger;
+				let person = {
+					email:email,
+					username:username,
+					password:password
+				};
+				debugger;
+				if (localStorage.array != "" && localStorage.array != undefined) {
+					debugger;
+				  	let stringArray = localStorage.array;
+					let ifHave = stringArray.includes(JSON.stringify(person))
+					debugger;
+				  	if (!ifHave) {
+						let newArray = JSON.parse(localStorage.array);
+					  	newArray.push(person);
+					  	localStorage.array = JSON.stringify(newArray);
+				  	}
+				debugger;
+				} else {
+				  	let array = [];
+				  	array.push(person);
+				  	localStorage.array = JSON.stringify(array)
+				}
+			}
+			  
+		}
+	}
   
 };
 </script>
